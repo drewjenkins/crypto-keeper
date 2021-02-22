@@ -1,0 +1,25 @@
+{
+  "name": "nodes-tarter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "nodemon": "^2.0.4",
+    "typescript": "^3.9.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon --config ./config/nodemon.json",
+    "build": "ts-node --project=./config/tsconfig.json src/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drewjenkins/NodeStarter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drewjenkins/NodeStarter/issues"
+  },
+  "homepage": "https://github.com/drewjenkins/NodeStarter#readme"
+}
