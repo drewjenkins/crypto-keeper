@@ -1,24 +1,33 @@
-const key = "7234dcc7-912a-4548-8e76-38f5ceca9de5";
-
-const requestOptions = {
-  method: "GET",
-  mode: "cors",
-  cache: "no-cache",
-  // qs: {
-  //   start: "1",
-  //   limit: "5000",
-  //   convert: "USD",
-  // },
-  headers: {
-    "X-CMC_PRO_API_KEY": "b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c",
-  },
-  json: true,
-  gzip: true,
+export type ApiCrypto = {
+  circulating_supply: number;
+  cmc_rank: number;
+  date_added: string;
+  id: number;
+  last_updated: string;
+  max_supply: number;
+  name: string;
+  num_market_pairs: number;
+  platform: null;
+  quote: {
+    USD: {
+      last_updated: string;
+      market_cap: number;
+      percent_change_1h: number;
+      percent_change_7d: number;
+      percent_change_24h: number;
+      percent_change_30d: number;
+      price: number;
+      volume_24h: number;
+    };
+  };
+  // USD: {price: 55769.36585390189, volume_24h: 52882390767.640114, percent_change_1h: -1.54646249,…}},
+  slug: string;
+  symbol: string;
+  tags: Array<string>;
+  total_supply: 18635218;
 };
 
-export const list = async () =>
-  fetch(
-    "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5000&convert=USD",
-    // @ts-ignore
-    requestOptions
-  );
+export const ticker = async () => {
+  const res = await fetch("http://localhost:3001/ticker");
+  return res.json();
+};

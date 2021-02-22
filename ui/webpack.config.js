@@ -5,7 +5,7 @@ const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin"
 const webpack = require("webpack");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
-
+console.log(path.resolve(__dirname, "../server/public"));
 module.exports = {
   mode: isDevelopment ? "development" : "production",
   devtool: "inline-source-map",
@@ -38,5 +38,8 @@ module.exports = {
 
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".csv"],
+  },
+  devServer: {
+    port: 3000,
   },
 };
