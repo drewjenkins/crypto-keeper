@@ -1,17 +1,25 @@
-export const timeField = (overrides = {}) => ({
+import { TableField } from "../../types/index";
+
+export const timeField = (
+  overrides: TableField = {} as TableField
+): TableField => ({
   width: 150,
   sortComparator: (a, b) =>
     new Date(a).valueOf() < new Date(b).valueOf() ? -1 : 1,
   ...overrides,
 });
 
-export const numberField = (overrides = {}) => ({
+export const numberField = (
+  overrides: TableField = {} as TableField
+): TableField => ({
   sortComparator: (a, b) =>
     Number.parseFloat(a) < Number.parseFloat(b) ? -1 : 1,
   ...overrides,
 });
 
-export const currencyField = (overrides = {}) => ({
+export const currencyField = (
+  overrides: TableField = {} as TableField
+): TableField => ({
   sortComparator: (a, b) =>
     Number.parseFloat(a.replace("$", "")) <
     Number.parseFloat(b.replace("$", ""))

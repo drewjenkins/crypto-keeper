@@ -2,16 +2,15 @@
 
 import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
-import { getTransactions } from "../utils/dataParser";
 import { formatAmount, formatCurrency, formatDate } from "../utils/formatting";
 import { timeField, numberField, currencyField } from "../utils/fields";
-import { ApiCrypto } from "../api/crypto";
-import { RawCrypto } from "../utils/csv";
+import transactionStore from "../store/transactions";
+import useTableSort from "../hooks/tableSort";
 
 const columns = [
   { field: "label", headerName: "Type", width: 165 },
   { field: "symbol", headerName: "Symbol" },
-  currencyField({ field: "price", headerName: "Price" }),
+  // currencyField({ field: "price", headerName: "Price" }),
   numberField({ field: "amount", headerName: "Amount", width: 110 }),
   timeField({ field: "date", headerName: "Date" }),
   currencyField({ field: "pricePer", headerName: "Price Per", width: 150 }),
@@ -21,8 +20,8 @@ const columns = [
     width: 150,
   }),
   {
-    field: "notes",
-    headerName: "Notes",
+    field: "description",
+    headerName: "Description",
     width: 300,
   },
   // { field: "portfolioPercent", headerName: "% of Portfolio" },
@@ -31,46 +30,34 @@ const columns = [
   // { field: "gainLossPercent", headerName: "Gain/Loss %" },
 ];
 
-const mapData = (data, i) => ({
+const mapData = (data) => ({
   ...data,
   amount: formatAmount(data.amount),
-  date: formatDate(data.date),
-  pricePer: formatCurrency(data.pricePer),
-  pricePaid: formatCurrency(data.pricePaid),
-  id: i,
+  date: formatDate(data.timestamp),
+  pricePer: formatCurrency(data.pricePerUnit),
+  pricePaid: formatCurrency(data.transactionAmount),
 });
 
-type Props = {
-  data: Array<RawCrypto>;
-  tickerData: Array<any>;
-};
+type Props = {};
 
-const TotalsTable = ({ data, tickerData }: Props) => {
-  if (!data || !tickerData.length) return null;
-
-  console.log(tickerData);
-  console.log(tickerData.find((d) => d.id === "BTC").price);
-
-  const appendPriceData = (transaction) => ({
-    ...transaction,
-    price: formatCurrency(
-      tickerData.find((d) => d.id === transaction.symbol).price
-    ),
-  });
-
-  const transactions = getTransactions(data).map(mapData).map(appendPriceData);
+const TransactionLog = () => {
+  const transactions = transactionStore.useState((s) => s.transactions);
+  const [sortModel, setSortModel] = useTableSort("PrettyDataTable");
 
   return (
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid
-        rows={transactions}
+        rows={transactions.map(mapData)}
         // @ts-ignore
         columns={columns}
-        sortModel={[{ field: "date", sort: "desc" }]}
+        // @ts-ignore
+        sortModel={sortModel}
+        // @ts-ignore
+        onSortModelChange={setSortModel}
         checkboxSelection
       />
     </div>
   );
 };
 
-export default TotalsTable;
+export default TransactionLog;

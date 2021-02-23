@@ -4,8 +4,8 @@ import React from "react";
 import Fab from "@material-ui/core/Fab";
 import Button from "@material-ui/core/Button";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import { updateTransactions } from "../actions/transactions";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import Papa from "papaparse";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,30 +28,8 @@ const useStyles = makeStyles((theme: Theme) =>
 const UploadButton = (props) => {
   const classes = useStyles();
 
-  const handleUpload = (e) => {
-    var reader = new FileReader();
-    reader.onload = function () {
-      Papa.parse(reader.result, {
-        complete: function (results) {
-          props.onLoad(
-            results.data
-              .filter((d) => !!d["Timestamp (UTC)"])
-              .map((d) => ({
-                ...d,
-                Amount: parseFloat(d.Amount),
-                "Native Amount": parseFloat(d["Native Amount"]),
-                "Native Amount (in USD)": parseFloat(
-                  d["Native Amount (in USD)"]
-                ),
-                "To Currency": d["To Currency"] || null,
-                "To Amount": d["To Amount"] ? parseFloat(d["To Amount"]) : null,
-              }))
-          );
-        },
-        header: true,
-      });
-    };
-    reader.readAsText(e.target.files[0]);
+  const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    updateTransactions(e.target.files[0]);
   };
 
   return (

@@ -3,75 +3,80 @@
 import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import { timeField, numberField, currencyField } from "../utils/fields";
+import { CryptoTransaction, TableColumns } from "../../types/index";
+import transactionStore from "../store/transactions";
+import { useHistory } from "react-router-dom";
+import useTableSort from "../hooks/tableSort";
 
-const columns = [
+const columns: TableColumns = [
   timeField({
-    field: "Timestamp (UTC)",
+    field: "timestamp",
     headerName: "Time",
   }),
   {
-    field: "Transaction Description",
+    field: "description",
     headerName: "Desc",
     width: 160,
   },
   {
-    field: "Currency",
-    headerName: "Currency",
+    field: "label",
+    headerName: "Label",
     width: 160,
   },
   numberField({
-    field: "Amount",
+    field: "amount",
     headerName: "Amount",
     width: 105,
   }),
+  // {
+  //   field: "To Currency",
+  //   headerName: "To Symbol",
+  //   hide: false,
+  // },
+  // numberField({
+  //   field: "To Amount",
+  //   headerName: "Converted Amount",
+  //   width: 175,
+  // }),
+  // { field: "Native Currency", headerName: "Native Currency", hide: false },
+  // currencyField({
+  //   field: "Native Amount",
+  //   headerName: "Native Amount",
+  //   hide: false,
+  // }),
+  // currencyField({
+  //   field: "Native Amount (in USD)",
+  //   headerName: "Price",
+  // }),
   {
-    field: "To Currency",
-    headerName: "To Symbol",
-    hide: false,
-  },
-  numberField({
-    field: "To Amount",
-    headerName: "Converted Amount",
-    width: 175,
-  }),
-  { field: "Native Currency", headerName: "Native Currency", hide: false },
-  currencyField({
-    field: "Native Amount",
-    headerName: "Native Amount",
-    hide: false,
-  }),
-  currencyField({
-    field: "Native Amount (in USD)",
-    headerName: "Price",
-  }),
-  {
-    field: "Transaction Kind",
+    field: "type",
     headerName: "Transaction Kind",
     hide: false,
     width: 300,
   },
 ];
 
-const mapData = (row, index) => ({
+const mapData = (row: CryptoTransaction, index: number) => ({
   ...row,
-  "Timestamp (UTC)": new Date(row["Timestamp (UTC)"]).toDateString(),
-  Amount: Number(row["Amount"]).toPrecision(4),
-  "To Amount": Number(row["To Amount"]).toPrecision(4),
-  "Native Amount": `$${row["Native Amount"]}`,
-  "Native Amount (in USD)": `$${row["Native Amount (in USD)"]}`,
   id: index,
+  label: `${row.crypto.label} (${row.crypto.symbol})`,
 });
 
-const RawDataTable = ({ data }) => {
-  if (!data) return null;
+const RawDataTable = () => {
+  const [sortModel, setSortModel] = useTableSort("RawDataTable");
+
+  const transactions = transactionStore.useState((s) => s.transactions);
 
   return (
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid
-        rows={data.map(mapData)}
+        rows={transactions.map(mapData)}
         // @ts-ignore
         columns={columns}
-        sortModel={[{ field: "Timestamp (UTC)", sort: "desc" }]}
+        // @ts-ignore
+        onSortModelChange={setSortModel}
+        // @ts-ignore
+        sortModel={sortModel}
         checkboxSelection
       />
     </div>

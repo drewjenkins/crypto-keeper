@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-var port = process.env.PORT || 3001;
+var port = 3001;
 
 app.get("/ticker", function (req, res) {
   const date = new Date(new Date());
@@ -28,7 +28,6 @@ app.get("/ticker", function (req, res) {
 
   fetch(requestOptions)
     .then((response) => {
-      console.log(response.length);
       res.json(response);
     })
     .catch((err) => {
@@ -37,6 +36,9 @@ app.get("/ticker", function (req, res) {
 });
 
 app.listen(port);
-console.log("Magic happens on port " + port);
+console.log(`
+  Client running at http://localhost:3000
+  Server running at http://localhost:${port}
+`);
 
 // "X-CMC_PRO_API_KEY": "b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c",

@@ -3,27 +3,25 @@
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-// import RawDataTable from "./RawDataTable";
-import PrettyDataTable from "./PrettyDataTable";
 import UploadButton from "./UploadButton";
-import { ticker } from "../api/crypto";
+import { getTicker } from "../actions/ticker";
+import Router from "./Router";
+import { BrowserRouter } from "react-router-dom";
 
 const App = (props) => {
-  const [data, setData] = React.useState([]);
-  const [tickerData, setTickerData] = React.useState([]);
-
   React.useEffect(() => {
-    (async () => {
-      setTickerData(await ticker());
-    })();
+    setInterval(async () => {
+      getTicker();
+    }, 2000);
   }, []);
 
   return (
     <Container maxWidth="lg" style={{ marginTop: 100 }}>
       <CssBaseline />
-      <UploadButton onLoad={setData} />
-      {/* <RawDataTable data={data} /> */}
-      <PrettyDataTable data={data} tickerData={tickerData} />
+      <UploadButton />
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </Container>
   );
 };
