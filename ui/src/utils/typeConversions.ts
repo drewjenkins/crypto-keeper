@@ -5,8 +5,16 @@ import { CryptoName } from "../../types/index";
 export const utcStringToTimestamp = (utcString) =>
   new Date(utcString).valueOf();
 
-export const getCryptoByLabel = (label) =>
-  cryptos.find((c: CryptoName) => normalize(c.label) === normalize(label));
+export const getCryptoByLabel = (label) => {
+  const match = cryptos.find(
+    (c: CryptoName) => normalize(c.label) === normalize(label)
+  );
+  return match || { label, symbol: label, tradeable: false };
+};
 
-export const getCryptoBySymbol = (symbol) =>
-  cryptos.find((c: CryptoName) => normalize(c.symbol) === normalize(symbol));
+export const getCryptoBySymbol = (symbol) => {
+  const match = cryptos.find(
+    (c: CryptoName) => normalize(c.symbol) === normalize(symbol)
+  );
+  return match || { label: symbol, symbol, tradeable: false };
+};

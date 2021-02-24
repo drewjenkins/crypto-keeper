@@ -2,10 +2,9 @@
 
 import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
-import { timeField, numberField, currencyField } from "../utils/fields";
+import { timeField, numberField } from "../utils/fields";
 import { CryptoTransaction, TableColumns } from "../../types/index";
 import transactionStore from "../store/transactions";
-import { useHistory } from "react-router-dom";
 import useTableSort from "../hooks/tableSort";
 
 const columns: TableColumns = [
@@ -28,26 +27,6 @@ const columns: TableColumns = [
     headerName: "Amount",
     width: 105,
   }),
-  // {
-  //   field: "To Currency",
-  //   headerName: "To Symbol",
-  //   hide: false,
-  // },
-  // numberField({
-  //   field: "To Amount",
-  //   headerName: "Converted Amount",
-  //   width: 175,
-  // }),
-  // { field: "Native Currency", headerName: "Native Currency", hide: false },
-  // currencyField({
-  //   field: "Native Amount",
-  //   headerName: "Native Amount",
-  //   hide: false,
-  // }),
-  // currencyField({
-  //   field: "Native Amount (in USD)",
-  //   headerName: "Price",
-  // }),
   {
     field: "type",
     headerName: "Transaction Kind",
@@ -68,7 +47,7 @@ const RawDataTable = () => {
   const transactions = transactionStore.useState((s) => s.transactions);
 
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: 620, width: "100%" }}>
       <DataGrid
         rows={transactions.map(mapData)}
         // @ts-ignore

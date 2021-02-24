@@ -3,7 +3,8 @@ import { Tabs, Tab } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 import TransactionLog from "./TransactionLog";
 import RawDataTable from "./RawDataTable";
-import { Switch, Route, Link, Redirect } from "react-router-dom";
+import Market from "./Market";
+import { Switch, Route, Link } from "react-router-dom";
 
 const Routes = (props) => {
   const handleCallToRouter = (event, value) => {
@@ -44,6 +45,7 @@ const Routes = (props) => {
           <Switch>
             <Route path="/raw-data" component={RawDataTable} />
             <Route path="/transaction-log" component={TransactionLog} />
+            <Route path="/" component={Market} />
           </Switch>
         </>
       )}

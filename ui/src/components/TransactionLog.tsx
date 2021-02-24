@@ -24,10 +24,6 @@ const columns = [
     headerName: "Description",
     width: 300,
   },
-  // { field: "portfolioPercent", headerName: "% of Portfolio" },
-  // { field: "totalValue", headerName: "Total Value" },
-  // { field: "totalGainLoss", headerName: "Total Gain/Loss" },
-  // { field: "gainLossPercent", headerName: "Gain/Loss %" },
 ];
 
 const mapData = (data) => ({
@@ -45,7 +41,7 @@ const TransactionLog = () => {
   const [sortModel, setSortModel] = useTableSort("PrettyDataTable");
 
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: 620, width: "100%" }}>
       <DataGrid
         rows={transactions.map(mapData)}
         // @ts-ignore

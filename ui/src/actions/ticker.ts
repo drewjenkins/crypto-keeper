@@ -1,5 +1,6 @@
 import { ticker } from "../api/crypto";
 import tickerStore from "../store/ticker";
+import transform from "../adapters/nomicsTickerAdapter";
 
 export const getTicker = async () => {
   const data = await ticker();
@@ -8,5 +9,8 @@ export const getTicker = async () => {
     return;
   }
 
-  tickerStore.update((s) => [...data]);
+  tickerStore.update((store) => {
+    const crypto = data.map((d) => transform(d, store));
+    store.tickerData = [...crypto];
+  });
 };

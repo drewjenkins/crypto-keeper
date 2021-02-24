@@ -1,4 +1,4 @@
-import { UTCString, Symbol } from "../index";
+import { UTCString, Symbol, CryptoStatus } from "../index";
 
 export type RawHistoricalData = {
   market_cap_change: string;
@@ -31,41 +31,11 @@ export type RawCrypto = {
   price_timestamp: UTCString;
   rank: string;
   rank_delta: string;
-  status: string;
+  status: CryptoStatus;
   symbol: Symbol;
   "1d": RawHistoricalData;
   "7d": RawHistoricalData;
   "30d": RawHistoricalData;
   "365d": RawHistoricalData;
   ytd: RawHistoricalData;
-};
-
-export type CryptoStatus = "active";
-
-export type HistoricalData = {
-  marketCapChange: number;
-  marketCapChangePercent: number;
-  priceChange: number;
-  priceChangePercent: number;
-  volume: number;
-  volumeChange: number;
-  volumeChangePercent: number;
-};
-
-export type Crypto = {
-  crypto: Crypto;
-  dailyHigh: number;
-  dailyHighTimestamp: number;
-  iconUrl: string;
-  status: CryptoStatus;
-  marketCap: number;
-  maxSupply: number;
-  price: number;
-  timestamp: number;
-  rank: number;
-  "1d": HistoricalData;
-  "7d": HistoricalData;
-  "30d": HistoricalData;
-  "365d": HistoricalData;
-  ytd: HistoricalData;
 };

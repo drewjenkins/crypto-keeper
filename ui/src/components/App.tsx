@@ -12,11 +12,12 @@ const App = (props) => {
   React.useEffect(() => {
     setInterval(async () => {
       getTicker();
-    }, 2000);
+    }, 125000);
   }, []);
+  getTicker();
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: 100 }}>
+    <Container maxWidth="xl" style={{ marginTop: 100 }}>
       <CssBaseline />
       <UploadButton />
       <BrowserRouter>
