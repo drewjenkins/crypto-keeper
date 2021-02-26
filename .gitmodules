@@ -1,0 +1,7 @@
+[submodule "crypto-keeper-api"]
+  path = crypto-keeper-api
+  url = git@github.com:drewjenkins/crypto-keeper-api.git
+
+[submodule "crypto-keeper-ui"]
+  path = crypto-keeper-ui
+  url = git@github.com:drewjenkins/crypto-keeper-ui.git
