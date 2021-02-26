@@ -9,7 +9,7 @@ import Router from "./Router";
 import Footer from "./Footer";
 import { BrowserRouter } from "react-router-dom";
 
-const ws = new WebSocket(`ws://localhost:3001`);
+const ws = new WebSocket(`ws://crypto-keeper-api.herokuapp.com`);
 ws.onmessage = function (event) {
   const message = JSON.parse(event.data);
   if (message.id !== "updateTicker") return;
