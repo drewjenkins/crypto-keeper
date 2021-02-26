@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "foreman": "^3.0.1"
+    "deep-equal": "^2.0.5",
+    "foreman": "^3.0.1",
+    "shallow-equal": "^1.2.1"
   },
   "devDependencies": {},
   "scripts": {

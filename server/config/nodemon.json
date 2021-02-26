@@ -1,7 +1,6 @@
 {
-    "watch": ["src"],
-    "ext": "ts",
-    "ignore": ["src/**/*.spec.ts"],
-    "exec": "ts-node --project=./config/tsconfig.json src/app.ts"
-  }
-  
+  "watch": ["src"],
+  "ext": "ts",
+  "ignore": ["src/**/*.spec.ts"],
+  "exec": "lsof -i tcp:\"3000\" | awk 'NR!=1 {print $2}' | xargs kill && lsof -i tcp:\"3001\" | awk 'NR!=1 {print $2}' | xargs kill && ts-node --project=./config/tsconfig.json src/app.ts"
+}

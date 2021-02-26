@@ -1,4 +1,15 @@
 Timestamp (UTC),Transaction Description,Currency,Amount,To Currency,To Amount,Native Currency,Native Amount,Native Amount (in USD),Transaction Kind
+2021-02-24 20:14:41,CRO Rewards,CRO,1.32631208,,,USD,0.21,0.21,referral_card_cashback
+2021-02-24 16:39:22,CRO Rewards,CRO,2.08726833,,,USD,0.34,0.34,referral_card_cashback
+2021-02-24 16:19:51,CRO Rewards,CRO,0.80106222,,,USD,0.13,0.13,referral_card_cashback
+2021-02-24 00:27:58,Crypto Earn,LTC,0.00060104,,,USD,0.1,0.1,crypto_earn_interest_paid
+2021-02-24 00:27:57,Crypto Earn,BTC,0.00001812,,,USD,0.85,0.85,crypto_earn_interest_paid
+2021-02-24 00:27:57,Crypto Earn,ETH,0.00032536,,,USD,0.48,0.48,crypto_earn_interest_paid
+2021-02-24 00:27:57,Crypto Earn,XLM,0.58727123,,,USD,0.21,0.21,crypto_earn_interest_paid
+2021-02-23 15:12:17,Convert Dust,CRO,0.727547873,,,USD,0.11,0.11,dust_conversion_credited
+2021-02-23 15:12:17,Convert Dust,TUSD,-0.11,,,USD,-0.11,-0.11,dust_conversion_debited
+2021-02-23 15:11:51,TUSD -> USD,TUSD,-999.89,,,USD,-990.51,-990.51,card_top_up
+2021-02-23 15:10:56,Buy TUSD,TUSD,1000.0,,,USD,1012.95,1012.95,crypto_purchase
 2021-02-20 18:06:44,Buy UNI,UNI,7.0,,,USD,216.35,216.35,crypto_purchase
 2021-02-19 00:13:11,USD -> LINK,USD,-100.42,LINK,3.069,USD,100.42,100.42,van_purchase
 2021-02-18 21:59:25,BNT -> USD,BNT,-17.0,USD,100.43,USD,-100.43,-100.43,crypto_to_van_sell_order

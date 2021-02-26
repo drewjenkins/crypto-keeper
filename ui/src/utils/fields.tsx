@@ -1,5 +1,10 @@
+"use es6";
+
+import React from "react";
 import { TableField } from "../../types/index";
 import { convertCurrencyToNumber, convertPercentageToNumber } from "./utils";
+import TrendCell from "../components/TrendCell";
+import Currency from "../components/Currency";
 
 export const timeField = (
   overrides: TableField = {} as TableField
@@ -19,17 +24,32 @@ export const numberField = (
 });
 
 export const currencyField = (
-  overrides: TableField = {} as TableField
+  overrides: TableField = {} as TableField,
+  colorize: boolean = false
 ): TableField => ({
   sortComparator: (a, b) =>
     convertCurrencyToNumber(a) < convertCurrencyToNumber(b) ? -1 : 1,
+  width: 170,
+  ...(colorize && {
+    renderCell: (params) => <Currency value={params.value} />,
+  }),
   ...overrides,
 });
 
 export const percentageField = (
-  overrides: TableField = {} as TableField
+  overrides: TableField = {} as TableField,
+  hideArrow = false
 ): TableField => ({
   sortComparator: (a, b) =>
     convertPercentageToNumber(a) < convertPercentageToNumber(b) ? -1 : 1,
+  width: 160,
+  renderCell: (params) => (
+    <TrendCell
+      currentValue={convertPercentageToNumber(params.value)}
+      lastValue={0}
+      valueLabel={params.value}
+      hideArrow={hideArrow}
+    />
+  ),
   ...overrides,
 });

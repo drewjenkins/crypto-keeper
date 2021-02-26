@@ -1,135 +1,193 @@
 import { CryptoName } from "../../types/index";
 
+export const unknown: CryptoName = {
+  label: "Unknown",
+  symbol: "???",
+  tradeable: false,
+};
+
 const cryptos: Array<CryptoName> = [
   {
     label: "Bitcoin",
     symbol: "BTC",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/btc.svg",
   },
   {
     label: "Ethereum",
     symbol: "ETH",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/eth.svg",
   },
   {
     label: "Tether",
     symbol: "USDT",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/usdt.svg",
   },
   {
     label: "Binance Coin",
     symbol: "BNB",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/bnb.svg",
   },
   {
     label: "Polkadot",
     symbol: "DOT",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/DOTOLD.jpg",
   },
   {
     label: "Cardano",
     symbol: "ADA",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ada.svg",
   },
   {
     label: "XRP",
     symbol: "XRP",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/XRP.svg",
   },
   {
     label: "Litecoin",
     symbol: "LTC",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ltc.svg",
   },
   {
     label: "Chainlink",
     symbol: "LINK",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/link.svg",
   },
   {
     label: "Bitcoin Cash",
     symbol: "BCH",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/bch.svg",
   },
   {
     label: "Stellar",
     symbol: "XLM",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/xlm.svg",
   },
   {
     label: "USD Coin",
     symbol: "USDC",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/usdc.svg",
   },
   {
     label: "Uniswap",
     symbol: "UNI",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/UNISWAP.svg",
   },
   {
     label: "Dogecoin",
     symbol: "DOGE",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/doge.svg",
   },
   {
     label: "Wrapped Bitcoin",
     symbol: "WBTC",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/WBTC.png",
   },
   {
     label: "NEM",
     symbol: "XEM",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/xem.svg",
   },
   {
     label: "Cosmos",
     symbol: "ATOM",
     tradeable: true,
+    iconUrl:
+      "https://nomics-api.s3.us-east-2.amazonaws.com/static/images/currencies/atom.jpg",
   },
   {
     label: "Aave",
     symbol: "AAVE",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/AAVE.jpg",
   },
   {
     label: "Solana",
     symbol: "SOL",
     tradeable: false,
+    iconUrl:
+      "https://nomics-api.s3.us-east-2.amazonaws.com/static/images/currencies/SOL2.jpg",
   },
   {
     label: "Crypto.com Coin",
     symbol: "CRO",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/cro.jpg",
   },
   {
     label: "Monero",
     symbol: "XMR",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/xmr.svg",
   },
   {
     label: "EOS",
     symbol: "EOS",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/eos.svg",
   },
   {
     label: "Huobi Token",
     symbol: "HT",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ht.jpg",
   },
   {
     label: "Bitcoin SV",
     symbol: "BSV",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/BSV.png",
   },
   {
     label: "TRON",
     symbol: "TRX",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/TRX.svg",
   },
   {
     label: "THETA",
     symbol: "THETA",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/theta.png",
   },
   {
     label: "IOTA",
@@ -140,166 +198,232 @@ const cryptos: Array<CryptoName> = [
     label: "Terra",
     symbol: "LUNA",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/LUNA.jpg",
   },
   {
     label: "Neo",
     symbol: "NEO",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/neo.svg",
   },
   {
     label: "Tezos",
     symbol: "XTZ",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/xtz.svg",
   },
   {
     label: "FTX Token",
     symbol: "FTT",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/FTXTOKEN.png",
   },
   {
     label: "VeChain",
     symbol: "VET",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/vet.png",
   },
   {
     label: "Dai",
     symbol: "DAI",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/DAI.svg",
   },
   {
     label: "Dash",
     symbol: "DASH",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/dash.svg",
   },
   {
     label: "Binance USD",
     symbol: "BUSD",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/BUSD.png",
   },
   {
     label: "Maker",
     symbol: "MKR",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/MKR.svg",
   },
   {
     label: "Avalanche",
     symbol: "AVAX",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/AVAX.png",
   },
   {
     label: "Kusama",
     symbol: "KSM",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/KSM.jpg",
   },
   {
     label: "The Graph",
     symbol: "GRT",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/GRT.jpg",
   },
   {
     label: "Filecoin",
     symbol: "FIL",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/FIL.png",
   },
   {
     label: "Synthetix",
     symbol: "SNX",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/SNX.png",
   },
   {
     label: "UNUS SED LEO",
     symbol: "LEO",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/leotoken.png",
   },
   {
     label: "Algorand",
     symbol: "ALGO",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ALGO.png",
   },
   {
     label: "Elrond",
     symbol: "EGLD",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/EGLD.jpeg",
   },
   {
     label: "SushiSwap",
     symbol: "SUSHI",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/SUSHI.png",
   },
   {
     label: "Compound",
     symbol: "COMP",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/COMP.png",
   },
   {
     label: "Decred",
     symbol: "DCR",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/dcr.svg",
   },
   {
     label: "Ravencoin",
     symbol: "RVN",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/rvn.png",
   },
   {
     label: "PancakeSwap",
     symbol: "CAKE",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/CAKE.jpg",
   },
   {
     label: "Zcash",
     symbol: "ZEC",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/zec.svg",
   },
   {
     label: "BitTorrent",
     symbol: "BTT",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/bittorrent.png",
   },
   {
     label: "Voyager Token",
     symbol: "VGX",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ETHOS.png",
   },
   {
     label: "Ethereum Classic",
     symbol: "ETC",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/etc.svg",
   },
   {
     label: "Celsius",
     symbol: "CEL",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/cel.jpg",
   },
   {
     label: "yearn.finance",
     symbol: "YFI",
     tradeable: true,
+    iconUrl:
+      "https://nomics-api.s3.us-east-2.amazonaws.com/static/images/currencies/YFI.png",
   },
   {
     label: "UMA",
     symbol: "UMA",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/UMA.jpeg",
   },
   {
     label: "Fantom",
     symbol: "FTM",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ftm.png",
   },
   {
     label: "0x",
     symbol: "ZRX",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/zrx.svg",
   },
   {
     label: "Zilliqa",
     symbol: "ZIL",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/zil.svg",
   },
   {
     label: "Nexo",
     symbol: "NEXO",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/nexo.png",
   },
   {
     label: "Revain",
@@ -310,31 +434,43 @@ const cryptos: Array<CryptoName> = [
     label: "Ren",
     symbol: "REN",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ren.jpg",
   },
   {
     label: "THORChain",
     symbol: "RUNE",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/RUNE.png",
   },
   {
     label: "OKB",
     symbol: "OKB",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/OKB.png",
   },
   {
     label: "SwissBorg",
     symbol: "CHSB",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/CHSB.png",
   },
   {
     label: "Waves",
     symbol: "WAVES",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/WAVES.png",
   },
   {
     label: "NEAR Protocol",
     symbol: "NEAR",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/NEAR.jpg",
   },
   {
     label: "renBTC",
@@ -345,41 +481,57 @@ const cryptos: Array<CryptoName> = [
     label: "Hedera Hashgraph",
     symbol: "HBAR",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/HBAR.jpg",
   },
   {
     label: "ICON",
     symbol: "ICX",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/icx.svg",
   },
   {
     label: "IOST",
     symbol: "IOST",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/iost.svg",
   },
   {
     label: "DigiByte",
     symbol: "DGB",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/dgb.svg",
   },
   {
     label: "Ontology",
     symbol: "ONT",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ONT.png",
   },
   {
     label: "Celo",
     symbol: "CELO",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/CELO.svg",
   },
   {
     label: "Bancor",
     symbol: "BNT",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/bnt.svg",
   },
   {
     label: "Paxos Standard",
     symbol: "PAX",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/pax.png",
   },
   {
     label: "Bitcoin BEP2",
@@ -390,21 +542,29 @@ const cryptos: Array<CryptoName> = [
     label: "Basic Attention Token",
     symbol: "BAT",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/bat.svg",
   },
   {
     label: "Nano",
     symbol: "NANO",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/nano.svg",
   },
   {
     label: "Polygon",
     symbol: "MATIC",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/matic.png",
   },
   {
     label: "Loopring",
     symbol: "LRC",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/LRC.jpg",
   },
   {
     label: "HUSD",
@@ -415,36 +575,49 @@ const cryptos: Array<CryptoName> = [
     label: "OMG Network",
     symbol: "OMG",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/OMG.jpeg",
   },
   {
     label: "TerraUSD",
     symbol: "UST",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/UST2.png",
   },
   {
     label: "Pundi X",
     symbol: "NPXS",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/npxs.png",
   },
   {
     label: "Stacks",
     symbol: "STX",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/BLOCKSTACK.png",
   },
   {
     label: "Horizen",
     symbol: "ZEN",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/zen.png",
   },
   {
     label: "Venus",
     symbol: "XVS",
     tradeable: false,
+    iconUrl: "",
   },
   {
     label: "Holo",
     symbol: "HOT",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/hot.png",
   },
   {
     label: "1inch",
@@ -455,26 +628,36 @@ const cryptos: Array<CryptoName> = [
     label: "Flow (Dapper Labs)",
     symbol: "FLOW",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/FLOW2.jpg",
   },
   {
     label: "Qtum",
     symbol: "QTUM",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/qtum.svg",
   },
   {
     label: "Curve DAO Token",
     symbol: "CRV",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/CRV2.jpg",
   },
   {
     label: "Siacoin",
     symbol: "SC",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/sc.svg",
   },
   {
     label: "Bitcoin Gold",
     symbol: "BTG",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/btg.svg",
   },
   {
     label: "DODO",
@@ -590,6 +773,8 @@ const cryptos: Array<CryptoName> = [
     label: "Balancer",
     symbol: "BAL",
     tradeable: true,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/BAL.png",
   },
   {
     label: "Polkastarter",
@@ -1020,6 +1205,8 @@ const cryptos: Array<CryptoName> = [
     label: "HEX",
     symbol: "HEX",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/HEX.jpeg",
   },
   {
     label: "DeFiChain",
@@ -1075,6 +1262,8 @@ const cryptos: Array<CryptoName> = [
     label: "BitMax Token",
     symbol: "BTMX",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/BTMX.jpg",
   },
   {
     label: "Bitpanda Ecosystem Token",
@@ -1125,11 +1314,15 @@ const cryptos: Array<CryptoName> = [
     label: "Amp",
     symbol: "AMP",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/AMP2.jpg",
   },
   {
     label: "The Transfer Token",
     symbol: "TTT",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/TTT2.png",
   },
   {
     label: "Mirror Protocol",
@@ -1140,6 +1333,8 @@ const cryptos: Array<CryptoName> = [
     label: "WhiteCoin",
     symbol: "XWC",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/xwc.jpg",
   },
   {
     label: "BakeryToken",
@@ -4255,6 +4450,8 @@ const cryptos: Array<CryptoName> = [
     label: "Hydro Protocol",
     symbol: "HOT",
     tradeable: false,
+    iconUrl:
+      "https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/hot.png",
   },
   {
     label: "Geeq",
@@ -5001,59 +5198,7 @@ const cryptos: Array<CryptoName> = [
     symbol: "KARMA",
     tradeable: false,
   },
+  { ...unknown },
 ];
 
 export default cryptos;
-
-export const tradeableCryptos = [
-  "CRO",
-  "BTC",
-  "ETH",
-  "XRP",
-  "LTC",
-  "EOS",
-  "XLM",
-  "ATOM",
-  "LINK",
-  "XTZ",
-  "BCH",
-  "VET",
-  "ICX",
-  "ADA",
-  "ALGO",
-  "NEO",
-  "OMG",
-  "MANA",
-  "WBTC",
-  "YFI",
-  "ONT",
-  "DOT",
-  "DOGE",
-  "UMA",
-  "USDC",
-  "ENJ",
-  "KNC",
-  "DAI",
-  "PAXG",
-  "BAT",
-  "COMP",
-  "QTUM",
-  "CELR",
-  "MKR",
-  "UNI",
-  "BAND",
-  "EGLD",
-  "AAVE",
-  "REN",
-  "LRC",
-  "CRV",
-  "ZIL",
-  "GRT",
-  "BNT",
-  "KSM",
-  "SKL",
-  "NEAR",
-  "SNX",
-  "BAL",
-  "SAND",
-];

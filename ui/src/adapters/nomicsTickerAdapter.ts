@@ -4,7 +4,6 @@ import {
   getCryptoBySymbol,
   utcStringToTimestamp,
 } from "../utils/typeConversions";
-import tickerStore from "../store/ticker";
 
 const calculatePreviousPrice = (crypto: Crypto, store: any) => {
   // @ts-ignore
@@ -23,7 +22,7 @@ const calculatePreviousPrice = (crypto: Crypto, store: any) => {
   return crypto.price;
 };
 
-const transform = (input: RawCrypto, store: any): Crypto => {
+const transform = (input: RawCrypto): Crypto => {
   const crypto: Crypto = {} as Crypto;
 
   const buildHistoricalData = (key: string): HistoricalData => ({
@@ -39,6 +38,7 @@ const transform = (input: RawCrypto, store: any): Crypto => {
   crypto.crypto = getCryptoBySymbol(input.symbol);
   crypto.id = crypto.crypto.symbol;
   crypto.symbol = crypto.crypto.symbol;
+  crypto.coin = crypto.crypto.symbol;
   crypto.label = crypto.crypto.label;
   crypto.dailyHigh = parseFloat(input.high);
   crypto.dailyHighTimestamp = utcStringToTimestamp(input.high_timestamp);
@@ -47,7 +47,6 @@ const transform = (input: RawCrypto, store: any): Crypto => {
   crypto.marketCap = parseInt(input.market_cap, 10);
   crypto.maxSupply = parseInt(input.max_supply, 10);
   crypto.price = parseFloat(input.price);
-  crypto.prevPrice = calculatePreviousPrice(crypto, store);
   crypto.timestamp = utcStringToTimestamp(input.price_timestamp);
   crypto.rank = parseInt(input.rank, 10);
 

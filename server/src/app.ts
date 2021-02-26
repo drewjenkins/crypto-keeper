@@ -2,6 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import fetch from "request-promise";
+import WebSocket from "ws";
+import deepEqual from "deep-equal";
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -10,7 +12,7 @@ app.use(cors());
 
 var port = 3001;
 
-app.get("/ticker", function (req, res) {
+const updateTicker = () => {
   const date = new Date(new Date());
   date.setDate(date.getDate() - 1);
 
@@ -26,19 +28,47 @@ app.get("/ticker", function (req, res) {
     gzip: true,
   };
 
-  fetch(requestOptions)
+  return fetch(requestOptions)
     .then((response) => {
-      res.json(response);
+      return response;
     })
     .catch((err) => {
-      res.json({ error: err.message });
+      return { error: err.message };
     });
+};
+
+app.get("/ticker", async (req, res) => {
+  const response = await updateTicker();
+  res.json(response);
 });
 
-app.listen(port);
+const server = app.listen(port);
 console.log(`
   Client running at http://localhost:3000
   Server running at http://localhost:${port}
 `);
 
-// "X-CMC_PRO_API_KEY": "b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c",
+let lastTickerData;
+const wss = new WebSocket.Server({ server });
+wss.on("connection", async (ws) => {
+  const id = setInterval(async () => {
+    const data = await updateTicker();
+    if (!deepEqual(lastTickerData, data)) {
+      lastTickerData = data;
+      ws.send(JSON.stringify({ id: "updateTicker", data }));
+    }
+  }, 10000);
+
+  if (!lastTickerData) {
+    const data = await updateTicker();
+    lastTickerData = data;
+    ws.send(JSON.stringify({ id: "updateTicker", data }));
+  } else {
+    ws.send(JSON.stringify({ id: "updateTicker", data: lastTickerData }));
+  }
+
+  ws.on("close", function () {
+    console.log("stopping client interval");
+    clearInterval(id);
+  });
+});

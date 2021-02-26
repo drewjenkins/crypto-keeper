@@ -1,3 +1,6 @@
+import { CryptoName, Symbol } from "../../types";
+import cryptos, { unknown } from "../constants/cryptos";
+
 export const createGuid = () => {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
     var r = (Math.random() * 16) | 0,
@@ -33,3 +36,6 @@ export const convertCurrencyToNumber = (currency: string) => {
 export const convertPercentageToNumber = (percentage: string) => {
   return parseFloat(percentage.replace("%", ""));
 };
+
+export const getCryptoNameFromSymbol = (symbol: Symbol): CryptoName =>
+  cryptos.find((c) => c.symbol === symbol) || unknown;

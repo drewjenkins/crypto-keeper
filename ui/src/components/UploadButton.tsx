@@ -19,8 +19,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     button: {
       position: "fixed",
+      top: 25,
       right: 25,
-      bottom: 25,
+      zIndex: 2,
     },
   })
 );
@@ -43,7 +44,15 @@ const UploadButton = (props) => {
         onChange={handleUpload}
       />
       <label htmlFor="contained-button-file">
-        <Fab className={classes.button} color="primary" component="span">
+        <Fab
+          variant="extended"
+          color="primary"
+          className={classes.button}
+          component="span"
+        >
+          <span style={{ marginRight: 5 }}>
+            Upload Crypto.com Transaction History
+          </span>
           <CloudUploadIcon />
         </Fab>
       </label>

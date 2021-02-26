@@ -22,9 +22,7 @@ const mapTransactionType = (input: TransactionKind): TransactionType => {
     case TransactionKind.crypto_earn_program_created:
     case TransactionKind.dust_conversion_credited:
     case TransactionKind.dust_conversion_debited:
-    case TransactionKind.lockup_lock: {
-      return TransactionType.hide;
-    }
+    case TransactionKind.lockup_lock:
     default:
       return TransactionType.other;
   }
@@ -58,6 +56,7 @@ const transform = (input: RawTransaction): Array<CryptoTransaction> => {
     getCryptoBySymbol(input["To Currency"]);
   transaction.label = transaction.crypto.label;
   transaction.symbol = transaction.crypto.symbol;
+  transaction.coin = transaction.crypto.symbol;
 
   if (transaction.type !== TransactionType.exchange) {
     return [transaction];
@@ -73,6 +72,7 @@ const transform = (input: RawTransaction): Array<CryptoTransaction> => {
   );
   splitTransaction.crypto = getCryptoBySymbol(input["To Currency"]!);
   splitTransaction.label = splitTransaction.crypto.label;
+  splitTransaction.coin = splitTransaction.crypto.symbol;
   splitTransaction.symbol = splitTransaction.crypto.symbol;
   splitTransaction.id = createGuid();
 

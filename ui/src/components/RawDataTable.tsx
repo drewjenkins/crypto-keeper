@@ -6,8 +6,16 @@ import { timeField, numberField } from "../utils/fields";
 import { CryptoTransaction, TableColumns } from "../../types/index";
 import transactionStore from "../store/transactions";
 import useTableSort from "../hooks/tableSort";
+import BaseChart from "./BaseChart";
+import CoinCell from "./CoinCell";
 
 const columns: TableColumns = [
+  {
+    field: "coin",
+    headerName: "Coin",
+    width: 250,
+    renderCell: (params) => <CoinCell coin={params.value} />,
+  },
   timeField({
     field: "timestamp",
     headerName: "Time",
@@ -42,23 +50,14 @@ const mapData = (row: CryptoTransaction, index: number) => ({
 });
 
 const RawDataTable = () => {
-  const [sortModel, setSortModel] = useTableSort("RawDataTable");
-
   const transactions = transactionStore.useState((s) => s.transactions);
 
   return (
-    <div style={{ height: 620, width: "100%" }}>
-      <DataGrid
-        rows={transactions.map(mapData)}
-        // @ts-ignore
-        columns={columns}
-        // @ts-ignore
-        onSortModelChange={setSortModel}
-        // @ts-ignore
-        sortModel={sortModel}
-        checkboxSelection
-      />
-    </div>
+    <BaseChart
+      id="RawDataTable"
+      rows={transactions.map(mapData)}
+      columns={columns}
+    />
   );
 };
 

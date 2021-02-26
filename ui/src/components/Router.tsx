@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import TransactionLog from "./TransactionLog";
 import RawDataTable from "./RawDataTable";
 import Market from "./Market";
+import Positions from "./Positions";
 import { Switch, Route, Link } from "react-router-dom";
 
 const Routes = (props) => {
@@ -18,11 +19,20 @@ const Routes = (props) => {
         <>
           <Tabs value={location.pathname}>
             <Tab
-              label="Home"
+              label="Prices"
               component={Link}
               value="/"
               to={{
                 pathname: "/",
+                search: props.location.search,
+              }}
+            />
+            <Tab
+              label="Positions"
+              component={Link}
+              value="/positions"
+              to={{
+                pathname: "/positions",
                 search: props.location.search,
               }}
             />
@@ -44,6 +54,7 @@ const Routes = (props) => {
           </Tabs>
           <Switch>
             <Route path="/raw-data" component={RawDataTable} />
+            <Route path="/positions" component={Positions} />
             <Route path="/transaction-log" component={TransactionLog} />
             <Route path="/" component={Market} />
           </Switch>
