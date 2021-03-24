@@ -5,6 +5,7 @@
   "dependencies": {
     "deep-equal": "^2.0.5",
     "foreman": "^3.0.1",
+    "lodash": "^4.17.21",
     "shallow-equal": "^1.2.1"
   },
   "devDependencies": {
