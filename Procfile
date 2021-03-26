@@ -1,2 +1,2 @@
-ui: yarn --cwd ./crypto-keeper-ui start
-server: yarn --cwd ./crypto-keeper-api start
+web: node ./crypto-keeper-api/dist/app.js
+data-sync: node ./crypto-keeper-data/dist/app.js
