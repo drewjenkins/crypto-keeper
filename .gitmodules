@@ -1,10 +1,6 @@
-[submodule "crypto-keeper-api"]
-  path = crypto-keeper-api
+[submodule "dyno"]
+  path = dyno
   url = https://git.heroku.com/crypto-keeper-api.git
-
-[submodule "crypto-keeper-data"]
-  path = crypto-keeper-data
-  url = https://git.heroku.com/crypto-keeper-datadatadata.git
 
 [submodule "crypto-keeper-ui"]
   path = crypto-keeper-ui
