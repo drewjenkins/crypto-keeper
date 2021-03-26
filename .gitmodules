@@ -1,7 +1,3 @@
-[submodule "dyno"]
-	path = dyno
-	url = git@github.com:drewjenkins/crypto-dyno.git
-
 [submodule "crypto-keeper-ui"]
 	path = crypto-keeper-ui
 	url = git@github.com:drewjenkins/crypto-keeper-ui.git
