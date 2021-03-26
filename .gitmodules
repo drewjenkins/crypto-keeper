@@ -4,7 +4,7 @@
 
 [submodule "crypto-keeper-data"]
   path = crypto-keeper-data
-  url = ttps://git.heroku.com/crypto-keeper-data.git
+  url = https://git.heroku.com/crypto-keeper-data.git
 
 [submodule "crypto-keeper-ui"]
   path = crypto-keeper-ui
