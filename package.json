@@ -1,0 +1,30 @@
+{
+  "name": "crypto-keeper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "deep-equal": "^2.0.5",
+    "foreman": "^3.0.1",
+    "lodash": "^4.17.21",
+    "shallow-equal": "^1.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nf start",
+    "build": "yarn --cwd crypto-keeper-api build && yarn --cwd crypto-keeper-data build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drewjenkins/crypto-keeper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drewjenkins/crypto-keeper/issues"
+  },
+  "homepage": "https://github.com/drewjenkins/crypto-keeper#readme",
+  "description": ""
+}
