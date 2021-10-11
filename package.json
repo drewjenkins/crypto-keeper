@@ -14,7 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nf start",
-    "build": "yarn --cwd crypto-keeper-api build && yarn --cwd crypto-keeper-data build"
+    "build": "yarn --cwd crypto-dyno/crypto-keeper-api build && yarn --cwd crypto-keeper-data build"
   },
   "repository": {
     "type": "git",
