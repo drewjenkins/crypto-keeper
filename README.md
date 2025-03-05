@@ -1,6 +1,8 @@
+This project is no longer live.  This repo serves as a living archive.
+
 # crypto-keeper
 
-See the project at https://crypto-keeper.io/.
+~See the project at https://crypto-keeper.io/.~
 
 Crypto Keeper is a pet project aimed at making it simpler to track portfolio performance for the [Crypto.com App](https://crypto.com/).  At the time of this writing (July 27th, 2021), the Crypto.com App fails to provide a good overview of your portfolio performance.  In addition, there are no APIs available to pull this data easily.
 
